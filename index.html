@@ -117,10 +117,35 @@
             display: flex;
             flex-direction: column;
         }
-        .tool-card:hover {
+        /* 正常的卡片 hover 效果 */
+        .tool-card:not(.disabled-card):hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
             border-color: rgba(56, 163, 165, 0.3);
+        }
+        
+        /* 開發中/無效狀態 (灰階) */
+        .disabled-card {
+            opacity: 0.6; 
+            cursor: not-allowed;
+            background-color: #e5e7eb; 
+            filter: grayscale(100%); 
+            box-shadow: none !important; 
+            color: #6b7280; 
+        }
+        .disabled-card .material-icons {
+            color: #6b7280 !important; 
+        }
+        .dark .disabled-card {
+            background-color: #1f2937; 
+            color: #9ca3af;
+        }
+        .dark .disabled-card .material-icons {
+            color: #9ca3af !important;
+        }
+        .tool-card.disabled-card:hover {
+            transform: none;
+            border-color: transparent;
         }
 
         /* 滾動觸發顯示 */
@@ -131,17 +156,17 @@
         }
         .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-        /* ★★★ 新增：分類標籤 (Filter Tabs) 樣式 ★★★ */
+        /* 分類標籤 (Filter Tabs) 樣式 */
         .filter-scroll-container {
             display: flex;
             gap: 0.75rem;
             overflow-x: auto;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
-            -webkit-overflow-scrolling: touch; /* iOS 滑動順暢 */
-            scrollbar-width: none; /* Firefox 隱藏捲軸 */
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; 
         }
-        .filter-scroll-container::-webkit-scrollbar { display: none; } /* Chrome 隱藏捲軸 */
+        .filter-scroll-container::-webkit-scrollbar { display: none; } 
 
         .filter-btn {
             white-space: nowrap;
@@ -164,7 +189,6 @@
             color: #38A3A5;
             border-color: #38A3A5;
         }
-        /* 選中狀態 */
         .filter-btn.active {
             background-color: #38A3A5;
             color: white;
@@ -210,10 +234,10 @@
             <div class="min-h-[92vh] flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 z-0">
                     <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                         alt="Background" 
-                         class="w-full h-full object-cover animate-slow-zoom"
-                         loading="eager"
-                         fetchpriority="high">
+                           alt="Background" 
+                           class="w-full h-full object-cover animate-slow-zoom"
+                           loading="eager"
+                           fetchpriority="high">
                     <div class="absolute inset-0 bg-white/85 dark:bg-gray-900/85 backdrop-blur-sm"></div>
                 </div>
 
@@ -292,7 +316,8 @@
         // 2. 工具資料庫 (包含 type 分類)
         const toolsData = {
             'chinese': [
-                { title: '文章逐句朗讀', type: '閱讀輔助', icon: 'record_voice_over', desc: '將長篇文章轉位逐句顯示，並提供朗讀，輔助閱讀理解。', link: 'readingtest.html' },
+                /* --- 已修改：type 變更為 口說練習 --- */
+                { title: '文本詞語唸讀', type: '口說練習', icon: 'record_voice_over', desc: '將長篇文章轉位逐句顯示，並提供朗讀，輔助閱讀理解。', link: 'readingtest.html' },
                 { title: '句型排列製作', type: '寫作練習', icon: 'sort_by_alpha', desc: '降低書寫負荷，並提供即時發音。', link: 'unscramble.html' },
                 { title: '通用性閱讀測驗', type: '閱讀輔助', icon: 'quiz', desc: '語音朗讀、劃記重點、檢核答案等功能。', link: 'teacher/reading.html' },
                 { title: '文言文圖文學習單', type: '閱讀輔助', icon: 'translate', desc: '將艱澀的文言文轉化為圖文並茂的學習素材。', link: 'chinesetranslate.html' },
@@ -300,9 +325,13 @@
                 { title: 'AI圖片測驗', type: '測驗評量', icon: 'image', desc: '即時圖片、中英文發音、錯題重測功能。', link: 'engwords.html' }
             ],
             'math': [
-                { title: '互動式學習單生成', type: '教學輔具', icon: 'exposure_neg_1', desc: '將文字題目轉化為具有視覺提示、步驟拆解的互動網頁。', link: 'interativemath.html' }
+                { title: '互動式學習單生成', type: '教學輔具', icon: 'exposure_neg_1', desc: '將文字題目轉化為具有視覺提示、步驟拆解的互動網頁。', link: 'interativemath.html' },
+                { title: '應用題語意簡化 (開發中)', type: '閱讀調整', icon: 'psychology', desc: 'AI 自動將複雜的應用題文字簡化，提取關鍵數字與問題，降低閱讀門檻。', link: '#' },
+                { title: '錯誤類型診斷 AI (開發中)', type: '評量分析', icon: 'analytics', desc: '分析學生的錯題模式，判斷是計算粗心、概念迷思還是識字困難。', link: '#' }
             ],
             'english': [
+                /* --- 已修改：type 變更為 口說練習 --- */
+                { title: '文本詞語唸讀', type: '口說練習', icon: 'record_voice_over', desc: '將長篇文章轉位逐句顯示，並提供朗讀，輔助閱讀理解。', link: 'readingtest.html' },
                 { title: '逐句聽', type: '聽力練習', icon: 'headphones', desc: '將長篇文章改為逐句呈現，並提供翻譯及中英文發音。', link: 'https://g.co/gemini/share/9d9f4d4c25ac' },
                 { title: '逐句聽與唸', type: '口說練習', icon: 'mic', desc: 'AI 朗讀評分機制，逐句呈現並提供翻譯。', link: 'https://g.co/gemini/share/81fa3194197f' },
                 { title: '句型排列製作', type: '句型練習', icon: 'sort_by_alpha', desc: '降低書寫負荷，並提供即時發音。', link: 'unscramble.html' },
@@ -323,10 +352,14 @@
                 { title: '行為功能介入', type: '班級經營', icon: 'psychology_alt', desc: '輸入行為事件，一鍵分析 ABC，提供介入策略。', link: 'behavior.html' }
             ],
             'social-skills': [
-                 { title: '情緒圖片生成', type: '情緒辨識', icon: 'emoji_emotions', desc: '輸入情緒詞彙，AI 生成對應表情圖片。', link: 'https://g.co/gemini/share/448c25a01644' }
+                 { title: '情緒圖片生成', type: '情緒辨識', icon: 'emoji_emotions', desc: '輸入情緒詞彙，AI 生成對應表情圖片。', link: 'https://gemini.google.com/share/4b6b2db47207' },
+                 { title: '社會性故事生成 (開發中)', type: '社交故事', icon: 'auto_stories', desc: '針對特定社交情境，自動生成符合學生程度的社會性故事文本。', link: '#' },
+                 { title: '社交應對 AI (開發中)', type: '溝通練習', icon: 'forum', desc: '輸入人際互動情境，AI 分析對方想法並提供適當的對話回應建議。', link: '#' }
             ],
             'learning-strategies': [
-                { title: 'AI心智圖', type: '認知策略', icon: 'account_tree', desc: '輸入主題，AI 自動生成紙本心智圖、互動式心智圖，幫助整理思緒。', link: 'mindmap.html' }
+                { title: 'AI心智圖', type: '認知策略', icon: 'account_tree', desc: '輸入主題，AI 自動生成紙本心智圖、互動式心智圖，幫助整理思緒。', link: 'mindmap.html' },
+                { title: '康乃爾筆記生成 (開發中)', type: '筆記策略', icon: 'note_add', desc: '輸入課文或重點，AI 自動轉換為「康乃爾筆記法」格式，幫助學生抓重點。', link: '#' },
+                { title: '超強記憶術生成 (開發中)', type: '記憶策略', icon: 'psychology', desc: '輸入難背的關鍵字或清單，AI 自動產生諧音、口訣或故事，提升記憶效率。', link: '#' }
             ],
             'life-management': [
                 { title: '自製報讀測驗', type: '輔助科技', icon: 'record_voice_over', desc: '快速建立報讀測驗，免安裝並支援離線。', link: 'tts.html' },
@@ -446,7 +479,7 @@
             displayCards(filtered);
         }
 
-        // 8. 顯示卡片 (HTML生成)
+        // 8. 顯示卡片 (HTML生成) - 已修改：支援開發中狀態與灰階
         function displayCards(tools) {
             const container = document.getElementById('tools-container');
             
@@ -455,9 +488,22 @@
                 return;
             }
 
-            container.innerHTML = tools.map((tool, index) => `
+            container.innerHTML = tools.map((tool, index) => {
+                // 判斷是否為開發中 (連結為 #)
+                const isDev = tool.link === '#';
+                
+                // 設定卡片樣式：如果是開發中，加上 disabled-card 樣式
+                const cardClasses = isDev 
+                    ? 'tool-card p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm block flex flex-col h-full disabled-card'
+                    : 'tool-card p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg block flex flex-col h-full';
+
+                // 設定點擊事件：如果是開發中，阻止點擊
+                const onClickAttr = isDev ? 'onclick="return false;"' : '';
+                
+                return `
                 <a href="${tool.link}" target="${tool.link.startsWith('http') ? '_blank' : '_self'}" 
-                   class="tool-card p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg block flex flex-col h-full"
+                   class="${cardClasses}"
+                   ${onClickAttr}
                    style="animation: fadeInUp 0.4s ease-out forwards; animation-delay: ${index * 0.05}s; opacity: 0;">
                     
                     <div class="flex justify-between items-start mb-4">
@@ -470,7 +516,7 @@
                     <h3 class="font-bold text-lg text-gray-800 dark:text-gray-100 mb-2">${tool.title}</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-grow">${tool.desc}</p>
                 </a>
-            `).join('');
+            `}).join('');
         }
 
         // 9. 捲動特效觀察器
@@ -495,7 +541,3 @@
 </body>
 
 </html>
-
-
-
-
