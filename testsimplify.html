@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>考題易讀系統 | 米克師</title>
+    <title>考題易讀簡化系統 | 米克師</title>
     <link rel="icon" href="dog.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,10 @@
                 extend: {
                     colors: {
                         'primary': '#38A3A5',
+                        'secondary': '#22577A',
                         'background-light': '#F0F4F8',
                         'surface-light': '#FFFFFF',
                         'text-light': '#2D3748',
-                        'accent': '#80CBC4',
                     },
                 },
             },
@@ -59,54 +59,51 @@
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-8 max-w-4xl flex-grow">
+    <div class="container mx-auto px-4 py-8 max-w-5xl flex-grow">
         <div class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-                考題易讀系統
+                考題易讀簡化系統
             </h1>
             <p class="text-lg text-text-light max-w-3xl mx-auto leading-relaxed">
-                專為老師與家長設計，透過 AI 快速調整排版，提高考題易讀性。
+                專為老師與家長設計，透過 AI 快速調整考題。<br>
+                降低學生的閱讀負擔，提高測驗理解度。
             </p>
         </div>
-        
-        <div class="bg-surface-light rounded-lg p-6 sm:p-8 mb-8 card-shadow hover-lift">
-            <div class="space-y-6">
-                <div class="bg-primary/10 p-5 rounded-lg border border-primary/20">
-                    <p class="font-semibold text-primary text-xl mb-3">使用步驟與特色：</p>
-                    <ul class="list-none space-y-3 text-text-light mb-6">
-                        <li class="flex items-start">
-                            <span class="mr-2">📁</span>
-                            <span><strong>上傳題目：</strong>支援 pdf 檔案、純文字或直接拍攝題目圖片。</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-2">⚙️</span>
-                            <span><strong>選擇模式：</strong>
-                                <ul class="ml-6 mt-1 list-disc text-sm space-y-1">
-                                    <li>調整排版：適時換行、增加行距，減少視覺壓力。</li>
-                                    <li>調整敘述：優化語句結構，讓題目更容易理解。</li>
-                                    <li>簡化題目：過濾冗贅資訊，聚焦核心評量目標。</li>
-                                </ul>
-                            </span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-2">🪄</span>
-                            <span><strong>一鍵生成：</strong>按下按鈕後，AI 將自動完成改寫。</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-2">📥</span>
-                            <span><strong>下載使用：</strong>直接產生 Word 檔，方便老師進行最後校對與列印。</span>
-                        </li>
-                    </ul>
 
-                    <a href="https://gemini.google.com/share/2f1a62dee0cf" 
-                       target="_blank" rel="noopener noreferrer"
-                       class="inline-block bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-lg transition-colors duration-300 font-semibold shadow-md">
-                        點我開始使用
-                    </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-surface-light rounded-2xl p-8 card-shadow hover-lift flex flex-col border-t-4 border-primary">
+                <div class="text-4xl mb-4">📄</div>
+                <h2 class="text-2xl font-bold text-primary mb-4">模式 A：易讀排版調整</h2>
+                <div class="text-gray-600 mb-8 flex-grow space-y-2">
+                    <p>● 保持原始題目敘述不變。</p>
+                    <p>● 自動進行「一行一句」換行。</p>
+                    <p>● 加大行距與段落間隔。</p>
+                    <p>● 減少視覺擁擠產生的壓力。</p>
                 </div>
+                <a href="https://gemini.google.com/share/2f1a62dee0cf" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full text-center bg-primary hover:bg-opacity-90 text-white px-6 py-4 rounded-xl transition-all font-semibold shadow-md text-lg">
+                   開始排版調整
+                </a>
+            </div>
+
+            <div class="bg-surface-light rounded-2xl p-8 card-shadow hover-lift flex flex-col border-t-4 border-secondary">
+                <div class="text-4xl mb-4">💡</div>
+                <h2 class="text-2xl font-bold text-secondary mb-4">模式 B：語句敘述簡化</h2>
+                <div class="text-gray-600 mb-8 flex-grow space-y-2">
+                    <p>● 包含「模式 A」的易讀排版。</p>
+                    <p>● 將艱澀語句轉為白話敘述。</p>
+                    <p>● 核心考點不變，簡化贅字。</p>
+                    <p>● 適合理解力需要輔助的學生。</p>
+                </div>
+                <a href="https://gemini.google.com/gem/14o4ffx60poaHm5D4Zy-mboQXOHgIk712?usp=sharing" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full text-center bg-secondary hover:bg-opacity-90 text-white px-6 py-4 rounded-xl transition-all font-semibold shadow-md text-lg">
+                   開始敘述簡化
+                </a>
             </div>
         </div>
-
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div class="bg-surface-light border-l-4 border-gray-500 p-6 rounded-r-lg card-shadow">
                 <div class="flex items-start">
@@ -115,7 +112,7 @@
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">改編引用規範</h3>
                         <p class="text-gray-600 text-sm mb-2">若要引用本工具，請參照此格式：</p>
                         <div class="bg-gray-100 p-3 rounded border border-gray-200 text-xs font-mono text-gray-700 select-all break-all">
-                            原版工具：米克師 - 考題簡化系統<br>
+                            原版工具：米克師 - 考題易讀簡化系統<br>
                             連結︰https://chuoneone.github.io/teaching.github.io/teacher/testsimplification.html<br>
                             本作品採用 CC BY-NC-SA 4.0 授權。
                         </div>
@@ -129,8 +126,9 @@
                     <div class="ml-4">
                         <h3 class="text-lg font-semibold text-amber-800 mb-2">注意事項</h3>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-amber-900 text-sm">
-                            <li>AI 簡化後的題目可能影響原本的信效度，請老師務必確認是否符合課程評量指標。</li>
-                            <li>圖片轉文字技術（OCR）受圖片清晰度影響，若辨識錯誤請手動修正。</li>
+                            <li>AI 調整後的題目可能影響難度。</li>
+                            <li>請師長確認是否符合教學指標。</li>
+                            <li>OCR 辨識錯誤請手動修正。</li>
                         </ul>
                     </div>
                 </div>
@@ -144,7 +142,4 @@
     </footer>
 
 </body>
-
 </html>
-
-
