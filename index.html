@@ -4,10 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>SPEDMIX 米克師 | 專為特教設計的 AI 備課工具</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#38A3A5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="images/sped2.png">
 
+    <title>SPEDMIX 米克師 | 專為特教設計的 AI 備課工具</title>
     <meta name="description" content="SPEDMIX 米克師是專為特殊教育老師設計的 AI 備課平台。提供國語文文本簡化、數學互動教材、IEP 目標撰寫、行為功能介入分析及行政減量工具，協助特教老師高效備課，提升教學品質。">
-    
     <meta property="og:title" content="SPEDMIX 米克師 - 特教老師的 AI 備課神隊友">
     <meta property="og:description" content="一鍵生成 IEP目標、教材簡化、行為分析。專為特教與資源班設計的教學輔助工具，讓備課不再是負擔。">
     <meta property="og:image" content="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
@@ -83,9 +87,9 @@
             animation: fadeIn 0.4s ease-out;
         }
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(10px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
+             from { opacity: 0; transform: translateY(10px); } 
+             to { opacity: 1; transform: translateY(0); } 
+         }
 
         /* 首頁分類大按鈕 */
         .gradient-button {
@@ -117,14 +121,12 @@
             display: flex;
             flex-direction: column;
         }
-        /* 正常的卡片 hover 效果 */
         .tool-card:not(.disabled-card):hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
             border-color: rgba(56, 163, 165, 0.3);
         }
-        
-        /* 開發中/無效狀態 (灰階) */
+                
         .disabled-card {
             opacity: 0.6; 
             cursor: not-allowed;
@@ -132,21 +134,11 @@
             filter: grayscale(100%); 
             box-shadow: none !important; 
             color: #6b7280; 
-        }
-        .disabled-card .material-icons {
-            color: #6b7280 !important; 
-        }
-        .dark .disabled-card {
-            background-color: #1f2937; 
-            color: #9ca3af;
-        }
-        .dark .disabled-card .material-icons {
-            color: #9ca3af !important;
-        }
-        .tool-card.disabled-card:hover {
-            transform: none;
-            border-color: transparent;
-        }
+         }
+        .disabled-card .material-icons { color: #6b7280 !important; }
+        .dark .disabled-card { background-color: #1f2937; color: #9ca3af; }
+        .dark .disabled-card .material-icons { color: #9ca3af !important; }
+        .tool-card.disabled-card:hover { transform: none; border-color: transparent; }
 
         /* 滾動觸發顯示 */
         .reveal-on-scroll {
@@ -156,7 +148,7 @@
         }
         .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-        /* 分類標籤 (Filter Tabs) 樣式 */
+        /* 分類標籤樣式 */
         .filter-scroll-container {
             display: flex;
             gap: 0.75rem;
@@ -165,7 +157,7 @@
             margin-bottom: 1.5rem;
             -webkit-overflow-scrolling: touch; 
             scrollbar-width: none; 
-        }
+         }
         .filter-scroll-container::-webkit-scrollbar { display: none; } 
 
         .filter-btn {
@@ -179,28 +171,14 @@
             color: #64748b;
             border: 1px solid #e2e8f0;
         }
-        .dark .filter-btn {
-            background-color: rgba(45, 55, 72, 0.8);
-            color: #a0aec0;
-            border-color: #4a5568;
-        }
-        .filter-btn:hover {
-            background-color: rgba(56, 163, 165, 0.1);
-            color: #38A3A5;
-            border-color: #38A3A5;
-        }
-        .filter-btn.active {
-            background-color: #38A3A5;
-            color: white;
-            border-color: #38A3A5;
-            box-shadow: 0 4px 6px -1px rgba(56, 163, 165, 0.3);
-        }
+        .dark .filter-btn { background-color: rgba(45, 55, 72, 0.8); color: #a0aec0; border-color: #4a5568; }
+        .filter-btn:hover { background-color: rgba(56, 163, 165, 0.1); color: #38A3A5; border-color: #38A3A5; }
+        .filter-btn.active { background-color: #38A3A5; color: white; border-color: #38A3A5; box-shadow: 0 4px 6px -1px rgba(56, 163, 165, 0.3); }
     </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300 antialiased selection:bg-primary selection:text-white">
-    
-<header class="bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50">
+    <header class="bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50">
         <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-2 group">
                 <img src="images/sped2.png" alt="Logo" class="w-9 h-9 object-contain group-hover:rotate-12 transition-transform">
@@ -229,14 +207,13 @@
     </header>
 
     <main class="min-h-screen">
-        
         <section id="hero-view" class="view-section">
             <div class="min-h-[92vh] flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 z-0">
                     <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                           alt="Background" 
-                           class="w-full h-full object-cover animate-slow-zoom"
-                           loading="eager"
+                            alt="Background" 
+                            class="w-full h-full object-cover animate-slow-zoom" 
+                           loading="eager" 
                            fetchpriority="high">
                     <div class="absolute inset-0 bg-white/85 dark:bg-gray-900/85 backdrop-blur-sm"></div>
                 </div>
@@ -266,7 +243,7 @@
                 </div>
                 <div id="category-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto"></div>
                 
-                <div class="text-center mt-12">
+                <div class="text-center mt-12"> 
                      <button onclick="location.hash='#hero'" class="text-gray-500 hover:text-primary transition-colors flex items-center justify-center gap-1 mx-auto">
                         <span class="material-icons text-sm">arrow_upward</span> 回到首頁
                     </button>
@@ -288,7 +265,6 @@
                 </div>
 
                 <div id="filter-container" class="filter-scroll-container"></div>
-
                 <div id="tools-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-20"></div>
             </div>
         </section>
@@ -301,6 +277,15 @@
     </footer>
 
     <script>
+        // PWA Service Worker 註冊腳本
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('PWA Service Worker 註冊成功'))
+                    .catch(err => console.log('PWA 註冊失敗', err));
+            });
+        }
+
         // 1. 主分類資料
         const categories = [
             { id: 'chinese', icon: 'menu_book', title: '國語文', desc: '提供文本簡化、朗讀輔助等國語文教學工具。' },
@@ -313,10 +298,9 @@
             { id: 'life-management', icon: 'apps', title: '其它工具', desc: '其他實用的輔助科技與生活管理工具。' },
         ];
 
-        // 2. 工具資料庫 (包含 type 分類)
+        // 2. 工具資料庫
         const toolsData = {
             'chinese': [
-                /* --- 已修改：type 變更為 口說練習 --- */
                 { title: '文本詞語唸讀', type: '口說練習', icon: 'record_voice_over', desc: '將長篇文章轉位逐句顯示，並提供朗讀，輔助閱讀理解。', link: 'readingtest.html' },
                 { title: '句型排列製作', type: '寫作練習', icon: 'sort_by_alpha', desc: '降低書寫負荷，並提供即時發音。', link: 'unscramble.html' },
                 { title: '通用性閱讀測驗', type: '閱讀輔助', icon: 'quiz', desc: '語音朗讀、劃記重點、檢核答案等功能。', link: 'teacher/reading.html' },
@@ -331,7 +315,6 @@
                 { title: '錯誤類型診斷 AI (開發中)', type: '測驗評量', icon: 'analytics', desc: '分析學生的錯題模式，判斷是計算粗心、概念迷思還是識字困難。', link: '#' }
             ],
             'english': [
-                /* --- 已修改：type 變更為 口說練習 --- */
                 { title: '文本詞語唸讀', type: '口說練習', icon: 'record_voice_over', desc: '將長篇文章轉位逐句顯示，並提供朗讀，輔助閱讀理解。', link: 'readingtest.html' },
                 { title: '逐句聽', type: '聽力練習', icon: 'headphones', desc: '將長篇文章改為逐句呈現，並提供翻譯及中英文發音。', link: 'https://g.co/gemini/share/9d9f4d4c25ac' },
                 { title: '逐句聽與唸', type: '口說練習', icon: 'mic', desc: 'AI 朗讀評分機制，逐句呈現並提供翻譯。', link: 'https://g.co/gemini/share/81fa3194197f' },
@@ -342,12 +325,11 @@
             'advocacy': [
                 { title: '差異化教材生成', type: '教材調整', icon: 'auto_fix_high', desc: '利用 AI 簡化複雜課文，一鍵生成摘要、漫畫。', link: 'simple.html' },
                 { title: '個別化出題', type: '評量調整', icon: 'edit_note', desc: '貼上課文，即可產生差異化題型。', link: 'question.html' },
-                { title: 'AI圖片測驗', type: '評量調整', icon: 'image', desc: '即時圖片、中英文發音、錯題重測功能。', link: 'aiimagestest.html' },                
+                { title: 'AI圖片測驗', type: '評量調整', icon: 'image', desc: '即時圖片、中英文發音、錯題重測功能。', link: 'aiimagestest.html' },
                 { title: '測驗模版', type: '評量調整', icon: 'image', desc: '貼上題目，即可生成網頁遊戲模版。', link: 'cowboy.html' },
                 { title: '工作分析圖文生成', type: '教材調整', icon: 'account_tree', desc: '建立步驟化的視覺提示，引導學生完成任務。', link: 'taskanalysis.html' },
                 { title: '考題易讀系統', type: '評量調整', icon: 'account_tree', desc: '透過 AI 快速調整試卷排版。', link: 'testsimplify.html' },
                 { title: '學習診斷模版', type: '評量調整', icon: 'account_tree', desc: '提供學習儀表版，讓學生進行自我診斷，提供模版供教師修改。', link: 'learning_diagnostic.html' }
-                
             ],
             'ai-tools': [
                 { title: 'IEP 目標產生', type: '文書行政', icon: 'description', desc: '根據需求快速生成 IEP 學期與學年目標。', link: 'IEP.html' },
@@ -371,15 +353,13 @@
             ]
         };
 
-        // 3. 系統初始化
         function initApp() {
             renderCategories();
-            handleHashChange(); // 處理初始載入或重新整理
+            handleHashChange();
             window.addEventListener('hashchange', handleHashChange);
             initScrollReveal();
         }
 
-        // 4. 渲染主選單按鈕
         function renderCategories() {
             const container = document.getElementById('category-container');
             container.innerHTML = categories.map(cat => `
@@ -392,159 +372,103 @@
             `).join('');
         }
 
-        // 5. 路由與視圖切換
         function handleHashChange() {
             const hash = location.hash || '#hero';
-            const [view, param] = hash.substring(1).split('/'); // ex: detail/chinese
+            const [view, param] = hash.substring(1).split('/');
 
-            // 隱藏所有視圖
             document.querySelectorAll('.view-section').forEach(el => {
                 el.classList.remove('active');
-                // 等待淡出動畫結束再 none，除非是快速切換
                 setTimeout(() => { if(!el.classList.contains('active')) el.style.display = 'none'; }, 300);
             });
 
             const targetView = document.getElementById(view + '-view');
-            
-            // 如果是進入 Detail 頁面，需載入該科目的工具
-            if (view === 'detail' && param) {
-                renderTools(param);
-            }
+            if (view === 'detail' && param) { renderTools(param); }
 
             if (targetView) {
-                // 確保先關閉其他 display 以免重疊
                 document.querySelectorAll('.view-section').forEach(el => el.style.display = 'none');
-                
                 targetView.style.display = 'block';
-                // 使用 RAF 確保 transition 生效
                 requestAnimationFrame(() => targetView.classList.add('active'));
-                
-                // 頁面捲動回頂部
                 window.scrollTo({ top: 0, behavior: 'auto' });
             }
         }
 
-        // 6. 渲染詳細頁面 (含篩選器邏輯)
-        let currentTools = []; // 暫存當前頁面的工具列表
-
         function renderTools(categoryId) {
             const category = categories.find(c => c.id === categoryId);
-            currentTools = toolsData[categoryId] || []; // 取得該分類所有工具
-            
+            currentTools = toolsData[categoryId] || [];
             const titleEl = document.getElementById('detail-title');
             const descEl = document.getElementById('detail-desc');
             const filterContainer = document.getElementById('filter-container');
 
-            // 更新標題與描述
             if (category) {
                 titleEl.innerHTML = `<span class="material-icons text-4xl">${category.icon}</span> ${category.title}工具`;
                 descEl.textContent = category.desc;
             }
 
-            // --- 產生篩選按鈕 ---
             if (currentTools.length > 0) {
-                // 抓取不重複的 type，如果沒寫 type 歸類為 '其他'
                 const types = ['全部', ...new Set(currentTools.map(t => t.type || '其他'))];
-                
-                // 只有當分類超過 1 種時 (全部 + 另一種)，才顯示篩選器
                 if (types.length > 2) {
                     filterContainer.innerHTML = types.map(type => `
-                        <button onclick="filterTools('${type}', this)" 
-                                class="filter-btn ${type === '全部' ? 'active' : ''}">
+                        <button onclick="filterTools('${type}', this)" class="filter-btn ${type === '全部' ? 'active' : ''}">
                             ${type}
                         </button>
                     `).join('');
                     filterContainer.style.display = 'flex';
-                } else {
-                    filterContainer.style.display = 'none';
-                }
-            } else {
-                filterContainer.style.display = 'none';
-            }
+                } else { filterContainer.style.display = 'none'; }
+            } else { filterContainer.style.display = 'none'; }
 
-            // 預設顯示全部工具
             displayCards(currentTools);
         }
 
-        // 7. 篩選動作
         function filterTools(type, btnElement) {
-            // 切換按鈕 active 樣式
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
-
-            // 過濾資料
-            const filtered = type === '全部' 
-                ? currentTools 
-                : currentTools.filter(t => (t.type || '其他') === type);
-
-            // 重新渲染卡片
+            const filtered = type === '全部' ? currentTools : currentTools.filter(t => (t.type || '其他') === type);
             displayCards(filtered);
         }
 
-        // 8. 顯示卡片 (HTML生成) - 已修改：支援開發中狀態與灰階
         function displayCards(tools) {
             const container = document.getElementById('tools-container');
-            
             if (tools.length === 0) {
                 container.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">此分類尚無工具。</p>';
                 return;
             }
 
             container.innerHTML = tools.map((tool, index) => {
-                // 判斷是否為開發中 (連結為 #)
                 const isDev = tool.link === '#';
-                
-                // 設定卡片樣式：如果是開發中，加上 disabled-card 樣式
                 const cardClasses = isDev 
                     ? 'tool-card p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm block flex flex-col h-full disabled-card'
                     : 'tool-card p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg block flex flex-col h-full';
 
-                // 設定點擊事件：如果是開發中，阻止點擊
                 const onClickAttr = isDev ? 'onclick="return false;"' : '';
-                
                 return `
-                <a href="${tool.link}" target="${tool.link.startsWith('http') ? '_blank' : '_self'}" 
-                   class="${cardClasses}"
-                   ${onClickAttr}
+                <a href="${tool.link}" target="${tool.link.startsWith('http') ? '_blank' : '_self'}"
+                    class="${cardClasses}" ${onClickAttr}
                    style="animation: fadeInUp 0.4s ease-out forwards; animation-delay: ${index * 0.05}s; opacity: 0;">
-                    
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
                             <span class="material-icons text-2xl">${tool.icon}</span>
                         </div>
                         ${tool.type ? `<span class="text-xs font-bold px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">${tool.type}</span>` : ''}
                     </div>
-
                     <h3 class="font-bold text-lg text-gray-800 dark:text-gray-100 mb-2">${tool.title}</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-grow">${tool.desc}</p>
-                </a>
-            `}).join('');
+                </a>`}).join('');
         }
 
-        // 9. 捲動特效觀察器
         function initScrollReveal() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add('is-visible');
                 });
             }, { threshold: 0.1 });
-
             document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
         }
 
-        // 10. 手機版選單開關
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // 啟動程式
         window.addEventListener('load', initApp);
     </script>
 </body>
-
-
 </html>
-
-
-
-
