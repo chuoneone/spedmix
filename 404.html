@@ -1,89 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>米克師 SpedMix - 網址搬家轉向中</title>
-    <style>
-        body {
-            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-            background-color: #f8fafc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        .container {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 400px;
-        }
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #2563eb;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-        }
-    </style>
+    <script>
+        // 設定新網域
+        const newDomain = "https://spedmix.pages.dev";
+        
+        // 取得目前路徑並進行格式清理
+        let path = window.location.pathname;
+        
+        // 處理舊的 Repo 子目錄與副檔名
+        path = path.replace('/spedmix/', '/').replace('.html', '');
+        
+        // 執行跳轉
+        window.location.replace(newDomain + path);
+    </script>
 </head>
 <body>
-
-<div class="container">
-    <h2>🚚 網站已搬家</h2>
-    <p>我們正在將您導向至新版頁面...</p>
-    <div class="loader"></div>
-    <p id="msg">如果您沒有自動跳轉，請點擊下方按鈕</p>
-    <a id="new-link" href="https://spedmix.pages.dev/" class="btn">前往新站</a>
-    
-    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-    <p style="font-size: 0.9rem; color: #64748b;">
-        找不到工具？歡迎私訊 IG：<br>
-        <a href="https://www.instagram.com/spedmix/" style="color: #e1306c; text-decoration: none;">米克師 SpedMix</a>
-    </p>
-</div>
-
-<script>
-    // 1. 定義新舊網域
-    const newBase = "https://spedmix.pages.dev";
-    
-    // 2. 取得目前路徑 (例如 /spedmix/readingtest.html)
-    let path = window.location.pathname;
-    
-    // 3. 處理路徑邏輯
-    // 如果路徑包含 /spedmix/，先把它移除
-    path = path.replace('/spedmix/', '/');
-    
-    // 如果路徑結尾有 .html，把它移除 (符合你新網址的風格)
-    path = path.replace('.html', '');
-    
-    // 4. 組合成新網址
-    const targetUrl = newBase + path;
-    
-    // 更新頁面上的按鈕連結
-    document.getElementById('new-link').href = targetUrl;
-
-    // 5. 執行自動跳轉 (延遲 2 秒讓使用者看到說明)
-    setTimeout(function() {
-        window.location.replace(targetUrl);
-    }, 2000);
-</script>
-
 </body>
 </html>
